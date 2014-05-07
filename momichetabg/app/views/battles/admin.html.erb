@@ -1,0 +1,7 @@
+<div class="container">
+	<h2> Total number of images: <%= @total_images %> </h2>
+	<h2> <%= @total_images/2 %> Couples</h2>
+	<h2> Number of ready images: <%= @number_of_ready_images %> </h2>
+	<%= button_to "Start Battles", start_tournament_path %>
+	<%= button_to "Move Battles", move_tournament_path %>
+</div>

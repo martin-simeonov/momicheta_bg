@@ -1,0 +1,159 @@
+.container {
+	/*width: 960px;*/
+}
+
+#site-header .logo-area {
+	background: #b72035 url("img/overly.png");
+	padding: 40px;
+}
+
+#site-header .logo-area .logo {
+	line-height: 1em;
+	margin: 0;
+	font-weight: bolder;
+	text-align: center;
+}
+
+#site-header .logo-area .logo a {
+	color: white;
+	text-decoration: none;
+	text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+	text-transform: uppercase;
+}
+
+#site-header .logo-area .logo a span {
+	color: black;
+}
+
+.navbar.center .navbar-inner {
+	text-align: center;
+	min-height: 50px !important;
+}
+
+.navbar.center .navbar-inner .nav {
+	display:inline-block;
+	float: none;
+	padding: 0;
+	padding-top: 7px;
+}
+
+.navbar .navbar-brand {
+	margin-bottom: 0;
+}
+
+#primary-navigation .nav li a {
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+h2.heading {
+	font-size: 21px;
+	font-weight: bold;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.desc {
+	color: #888;
+}
+
+.desc strong {
+	color: black;
+}
+
+/*
+ * The precentage info
+ */
+.precentage {
+	text-align: center;
+	font-size: 32px;
+	font-weight: 900;
+}
+
+.precentage.high {
+	color: #53b8ff;
+}
+.precentage.low {
+	color: #db6c7c;
+}
+
+.image-holder {
+	background: #f0f0f0;
+	padding: 30px 70px 30px 70px;
+	max-width: 960px;
+	margin: 60px auto 0px auto;
+}
+
+.shadow {
+	max-width: 960px;
+	width: 100%;
+	height: 30px;
+	margin: 0 auto;
+	background: url("img/shadow.png") no-repeat top center;
+	margin-bottom: 40px;
+}
+
+.image-holder img {
+	width: 100%;
+	height: auto;
+}
+
+.image-holder .girl-name {
+	font-size: 16px;
+	text-align: center;
+	font-weight: bold;
+	margin-top: 20px;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.vote-photo {
+	position: relative;
+	display: block;
+	overflow: hidden;
+}
+
+.vote-photo .overlay {
+	width: 100%;
+	height: 100%;
+	background: #000;
+	position: absolute;
+	display: none;
+	opacity: 0.5
+}
+.vote-photo .overlay h2 {
+	color: #fff;
+	padding-left: 20px;
+}
+
+.text-center .fb-share {
+	margin: 0 auto;
+	display: inline-block;
+}
+
+.text-center .fb-share i {
+	margin-right: 10px;
+}
+
+#site-footer {
+	margin-top: 60px;
+	background: #1d1d1d;
+	color: white;
+	padding: 40px;
+}
+
+#site-footer ul {
+	margin: 0;
+}
+
+#site-footer ul li {
+	list-style: none;
+	margin: 0;
+}
+
+#site-footer a {
+	color: white;
+}

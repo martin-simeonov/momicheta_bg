@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Momichetabg</title>
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
+
+  	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bootstrap 101 Template</title>
+</head>
+<body>
+		<header id="site-header">
+			<div class="logo-area">
+				<div class="container">
+					<%= link_to '<h1 class="logo">Момичета<span>.</span>BG</a></h1>'.html_safe, root_path%>
+				</div>
+				<div id="user-widget" align="right">
+				  <% if current_user %>
+				  	<img src="<%=current_user.image%>"></a>
+				    <strong id="name"><%= current_user.name %></strong>
+				    <%= link_to "Изход", signout_path, id: "sign_out" %>
+				    
+				  <% else %>
+				    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+				  <% end %>
+				</div>
+			</div>
+			<nav id="primary-navigation" class="navbar navbar-default center" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						 <p class='visible-xs navbar-brand'>Menu</p>
+					</div><!-- /navbar-header -->
+
+					<div class="collapse navbar-collapse navbar-inner" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li><%= link_to "Начало", root_path %></li> 
+							<%if admin? %>
+								<li><%= link_to "Конкурс", battles_admin_path %></li>
+								<li><%= link_to "Победителки", tournaments_path %></li> <!-- admin -->
+								<li><%= link_to "Записване", pictures_path %></li> <!-- admin -->
+							<% else %>
+								<li><%= link_to "Конкурс", battles_path %></li>
+								<li><%= link_to "Победителки", tournaments_path %></li>
+								<li><%= link_to "Записване", pictures_path %></li> 
+								<% if not current_user.nil? %>
+									<li><%= link_to "Мой Снимки", pictures_mypictures_path %></li>
+									<li><%= link_to "Любими", battles_subscriptions_path %></li> 
+								<% end %>	
+							<% end %>	
+							<li><%= link_to "Правила", rules_path %></li>
+						</ul><!-- /nav -->
+					</div><!-- /navbar-collapse -->
+				</div><!-- /container -->
+			</nav><!-- /navbar -->
+		</header><!-- /site-header -->
+
+		<div id="site-main">
+			<div class="container">
+			
+				<%= yield %>
+
+			</div><!-- /container -->
+		</div><!-- /site-main -->
+
+		<footer id="site-footer">
+			<div class="container">
+				<div class="col-lg-6 col-md-6 col-xs-12">
+					<nav>
+						<ul>
+							<li><a href="#">Условия за ползване</a></li>
+							<li><a href="#">© 2013 Момичета.бг Всички права запазени</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-lg-6 col-md-6 col-xs-12">
+					<p class="pull-right">Дизайн АЗ</p>
+				</div>
+			</div>
+		</footer><!-- site-footer -->
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+	</body>
+</html>

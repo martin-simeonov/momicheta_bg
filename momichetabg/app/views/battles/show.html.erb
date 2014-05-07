@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Oponent1:</strong>
+  <%= @battle.oponent1_id %>
+</p>
+
+<p>
+  <strong>Oponent2:</strong>
+  <%= @battle.oponent2_id %>
+</p>
+
+<p>
+  <strong>Oponent1 votes:</strong>
+  <%= @battle.oponent1_votes %>
+</p>
+
+<p>
+  <strong>Oponent2 votes:</strong>
+  <%= @battle.oponent2_votes %>
+</p>
+
+<%= link_to 'Edit', edit_battle_path(@battle) %> |
+<%= link_to 'Back', battles_path %>

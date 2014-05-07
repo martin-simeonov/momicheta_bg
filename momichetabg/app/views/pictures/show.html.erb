@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<%= image_tag @picture.avatar.url(:medium) %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <% if @picture.user%>
+  	<%= @picture.user.name %>
+  <% end %>	
+</p>
+<p>
+  <strong>Tournament:</strong>
+  <% if @picture.tournament%>
+  	<%= @picture.tournament.id %>
+  <% end %>	
+</p>
+<p>
+  <strong>Checked:</strong>
+  	<%= @picture.checked %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_picture_path(@picture) %> |
+<%= link_to 'Back', pictures_path %>

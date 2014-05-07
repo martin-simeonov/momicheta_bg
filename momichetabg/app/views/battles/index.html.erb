@@ -1,0 +1,32 @@
+<div id="fb-root"></div>
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) 
+            return;
+        js = d.createElement(s); 
+        js.id = id;
+        js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+    }
+    (document, 'script', 'facebook-jssdk'));
+</script>
+
+<% unless @duel.nil? %>
+    <div class="container">
+        <h2 class="heading">Всеки има право да гласува по веднъж на ден.</h2>
+
+        <div class="pull-right"><div class="fb-like" data-href="https://www.facebook.com/pages/%D0%9C%D0%BE%D0%BC%D0%B8%D1%87%D0%B5%D1%82%D0%B0%D0%91%D0%B3/425395310930108?ref=hl" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></div>
+        <p class='desc'><strong>Кликни върху снимката</strong> на твоята фоворитка, за да гласуваш!</br><em>(Втори кръг от 11-ти март до 22:00 часа на 17-ти март)</em></p>
+        <!-- the like button -->
+        <div>
+            <%= render 'battle' %>
+        </div>
+        <div class="shadow"></div>
+        <div class="text-center">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com" class="fb-share btn btn-primary  btn-lg "><i class="glyphicon glyphicon-thumbs-up icon-white"></i>Сподели в Facebook</a>
+        </div>
+    </div><!-- /container -->
+<% else %>
+    <h2>Няма активни битки в този момент...</h2>
+<% end %>

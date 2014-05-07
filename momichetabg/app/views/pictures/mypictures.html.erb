@@ -1,0 +1,9 @@
+<div class="container">
+	<% if not @mypic.nil? %>
+		<% @mypic.each do |pic| %>
+			<%= link_to battles_picture_history_path(id: pic.id) do %>
+				<%= image_tag pic.avatar.url(:medium), class: "my_pictures" %>
+			<% end %> 
+		<% end %>
+	<% end %>
+</div>

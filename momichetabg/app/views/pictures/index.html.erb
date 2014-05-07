@@ -1,0 +1,44 @@
+<h1>Listing pictures</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>User</th>
+      <th>Tournament</th>
+      <th>Checked</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pictures.each do |picture| %>
+      <tr>
+      <td><%= link_to (image_tag picture.avatar.url(:thumb)), picture %></td>
+        <td>
+        <% if picture.user%>
+          <%= picture.user.name %>
+        <% end %>
+        </td>
+        <td>
+        <% if picture.tournament %>
+          <%= picture.tournament.id %>
+        <% end %>
+        </td>
+        <td><% if !picture.checked %>
+              <%= link_to 'Одобри', approve_picture_path({id: picture.id}), id: "picture_#{picture.id}", class: "btn btn-default", method: "post", remote: false %>
+            <% else %> 
+              <%= link_to 'Махни', disapprove_picture_path({id: picture.id}), id: "picture_#{picture.id}", class: "btn btn-default", method: "post", remote: false %>
+            <% end %>
+        </td>
+        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
+        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Picture', new_picture_path %>

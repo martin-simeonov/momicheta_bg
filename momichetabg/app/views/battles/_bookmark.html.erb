@@ -1,0 +1,13 @@
+<div id="bookmark">
+	<% if not current_user.nil? %>
+		<% if current_user.subscriptions.map(&:battle_id).include?(@duel.id) %>
+			<%= link_to unsubscribe_path({battle_id: @duel.id}), :method => :post, remote: true, class: "bookmark_link" do %>		
+				<%= image_tag "/assets/favourites-128.png", class: "bookmark" %>	
+			<% end %>
+		<% else %>
+			<%= link_to subscribe_path({battle_id: @duel.id}), :method => :post, remote: true, class: "bookmark_link" do %>
+				<%= image_tag "/assets/love.png", class: "bookmark" %>
+			<% end %>
+		<% end %>	
+	<% end %>
+</div>

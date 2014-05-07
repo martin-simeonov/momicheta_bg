@@ -1,0 +1,70 @@
+<% if @choice != 1 and  @ch
+    oice != 2 %>
+    <%= javascript_include_tag "overlay/sample.js" %>
+<% end %> 
+   
+<div class="image-holder row" id="battle">          
+    <div class="col-lg-6col-md-6 col-sm-6 left-image">
+        <% if (@duel.oponent1_votes + @duel.oponent2_votes) != 0 %>
+            <% per = (@duel.oponent1_votes).percent_of(@duel.oponent1_votes + @duel.oponent2_votes).round(2) %>
+            <% if per >= 50 %>
+                <h3 class="precentage high">
+            <% else %>
+                <h3 class="precentage low">
+            <% end %>
+            <%= per %>%
+        <% else %>
+            <h3 class="precentage high">
+            50%
+        <% end %>
+        </h3>
+        <%= link_to battle_vote_path({battle_id: @duel.id, choice: 1}), :method => :post, class: 'vote-photo', remote: true do %>
+           
+                
+            <% if @choice == 2 %> 
+                <div class="overlay" style="display: block; background: url(http://localhost:3000/assets/overlay.png); opacity: 0.8;"></div>
+            <% else %>
+                <div class="overlay"><h2>Vote!</h2></div>
+            <% end %>    
+            <%= image_tag Picture.find(@duel.oponent1_id).avatar.url(:medium) %>
+        <% end %>
+        <h4 class="girl-name"><%= Picture.find(@duel.oponent1_id).user.name %>
+            <% if Picture.find(@duel.oponent1_id).user.city %>
+               - <%= Picture.find(@duel.oponent1_id).user.city %>
+            <% end %>
+        </h4>
+    </div><!-- /left -->
+    <div class="col-lg-6 col-md-6 col-sm-6 right-image">
+        <h3 class="precentage high">
+        <% if (@duel.oponent1_votes + @duel.oponent2_votes) != 0 %>
+            <% per = (@duel.oponent2_votes).percent_of(@duel.oponent1_votes + @duel.oponent2_votes).round(2) %>
+            <% if per >= 50 %>
+                <h3 class="precentage high">
+            <% else %>
+                <h3 class="precentage low">
+            <% end %>
+            <%= per %>%
+        <% else %>
+            <h3 class="precentage high">
+            50%
+        <% end %>    
+        </h3>
+        <%= link_to battle_vote_path({battle_id: @duel.id, choice: 2}), :method => :post, class: 'vote-photo', remote: true do %>
+            <% if @choice == 1 %> 
+                <div class="overlay" style="display: block; background: url(http://localhost:3000/assets/overlay.png); opacity: 0.8;"></div>
+            <% else %>
+                <div class="overlay"><h2>Vote!</h2></div>
+            <% end %>
+            <%= image_tag Picture.find(@duel.oponent2_id).avatar.url(:medium) %>
+        <% end %>
+        <h4 class="girl-name"><%= Picture.find(@duel.oponent2_id).user.name %>
+            <% if Picture.find(@duel.oponent2_id).user.city %>
+               - <%= Picture.find(@duel.oponent2_id).user.city %>
+            <% end %>
+        </h4>
+    </div><!-- /right -->
+    <div align="center" >
+        <%= render 'bookmark' %>
+    </div>
+</div><!-- image-holder -->
+ 

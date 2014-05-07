@@ -1,0 +1,3 @@
+var parent = $('#bookmark').parent();
+$('#bookmark').remove();
+parent.prepend("<%=j render 'bookmark' %>");

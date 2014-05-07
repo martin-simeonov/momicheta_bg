@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  oponent1_id: 1
+  oponent2_id: 1
+  oponent1_votes: 1
+  oponent2_votes: 1
+
+two:
+  oponent1_id: 1
+  oponent2_id: 1
+  oponent1_votes: 1
+  oponent2_votes: 1

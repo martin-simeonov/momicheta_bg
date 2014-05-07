@@ -1,0 +1,10 @@
+<% if not @battles.nil? %>
+	puts "test"
+	<% @battles.each do |b| %>
+		<% @duel = b %>
+		puts b.id
+		<div>
+			<%= render 'battle_no' %>
+		</div>
+	<% end %>
+<% end %>

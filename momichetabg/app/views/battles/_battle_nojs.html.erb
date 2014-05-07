@@ -1,0 +1,65 @@
+<div class="image-holder row" id="battle">
+    <div style="min-height: 620px;">          
+        <div class="col-lg-6col-md-6 col-sm-6 left-image">
+            <% if (@duel.oponent1_votes + @duel.oponent2_votes) != 0 %>
+                <% per = (@duel.oponent1_votes).percent_of(@duel.oponent1_votes + @duel.oponent2_votes).round(2) %>
+                <% if per >= 50 %>
+                    <h3 class="precentage high">
+                <% else %>
+                    <h3 class="precentage low">
+                <% end %>
+                <%= per %>%
+            <% else %>
+                <h3 class="precentage high">
+                50%
+            <% end %>
+            </h3>
+                <div class="vote-photo">
+                    <% if @choice == 2 %> 
+                        <div class="overlay" style="display: block; background: url(http://localhost:3000/assets/overlay.png); opacity: 0.8;"></div>
+                    <% else %>
+                        <div class="overlay"><h2>Vote!</h2></div>
+                    <% end %>    
+                    <%= image_tag Picture.find(@duel.oponent1_id).avatar.url(:medium) %>
+                </div>
+            <h4 class="girl-name"><%= Picture.find(@duel.oponent1_id).user.name %>
+                <% if Picture.find(@duel.oponent1_id).user.city %>
+                   - <%= Picture.find(@duel.oponent1_id).user.city %>
+                <% end %>
+            </h4>
+        </div><!-- /left -->
+        <div class="col-lg-6 col-md-6 col-sm-6 right-image">
+            <h3 class="precentage high">
+            <% if (@duel.oponent1_votes + @duel.oponent2_votes) != 0 %>
+                <% per = (@duel.oponent2_votes).percent_of(@duel.oponent1_votes + @duel.oponent2_votes).round(2) %>
+                <% if per >= 50 %>
+                    <h3 class="precentage high">
+                <% else %>
+                    <h3 class="precentage low">
+                <% end %>
+                <%= per %>%
+            <% else %>
+                <h3 class="precentage high">
+                50%
+            <% end %>    
+            </h3>
+                <div class="vote-photo">
+                    <% if @choice == 1 %> 
+                        <div class="overlay" style="display: block; background: url(http://localhost:3000/assets/overlay.png); opacity: 0.8;"></div>
+                    <% else %>
+                        <div class="overlay"><h2>Vote!</h2></div>
+                    <% end %>
+                    <%= image_tag Picture.find(@duel.oponent2_id).avatar.url(:medium) %>
+                </div>
+            <h4 class="girl-name"><%= Picture.find(@duel.oponent2_id).user.name %>
+                <% if Picture.find(@duel.oponent2_id).user.city %>
+                   - <%= Picture.find(@duel.oponent2_id).user.city %>
+                <% end %>
+            </h4>
+        </div><!-- /right -->
+    </div>
+    <div align="center" >
+        <%= render 'bookmark' %>
+    </div>
+</div><!-- image-holder -->
+ 

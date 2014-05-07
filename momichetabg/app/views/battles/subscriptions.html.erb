@@ -1,0 +1,16 @@
+<div class="container">
+	<% if not @sub.nil? %>
+		<% @sub.each do |s| %>
+			<% @duel = Battle.find(s.battle_id)
+				 if @duel.nil?
+				 	@choice = BattleVote.where(battle_id: @duel.id).where(user_id: current_user.id).first.choice
+				 else 
+				 	@choice = 0
+				 end
+			%>
+			<div>
+				<%= render 'battle_nojs' %>
+			</div>
+		<% end %>
+	<% end %>
+</div>

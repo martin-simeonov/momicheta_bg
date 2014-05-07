@@ -1,0 +1,9 @@
+<center>
+	<% @tournaments.reverse.each do |t| %>
+		<% @date = t.updated_at.to_s.split(" ")[0].gsub("-", " ").split(" ").reverse %>
+		<p><b><h5>Победителка от конкурса до <%= @date.join "-" %>.</h5></b></p>
+		<p><b><%= Picture.find(t.winner_id).user.name %></b></p>
+    	<%= image_tag Picture.find(t.winner_id).avatar.url, class: "winner_img" %>
+    	</br>
+	<% end %>
+</center>
